@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seajs</title>
+    <style>
+        body {margin:0;}
+        button {margin:1em;position:relative;z-index:2;}
+    </style>
+</head>
+<body>
+    <a href="" id="test" title = "点击查看大图"><img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg"></a>
+</body>
+<script src="libs/jquery-2.1.4.min.js"></script>
+<script src="libs/sea.js"></script>
+
+<script>
+    seajs.use("./static/main.js", function(test){
+        test.bind(document.getElementById('test'));
+    });
+</script>
+</html>
