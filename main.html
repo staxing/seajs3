@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>seajs</title>
+</head>
+<body>
+    <h1>this is the studing's text</h1>
+    <p>input.js</p>
+    <div id="m"></div>
+</body>
+<script src="/modules/libs/jquery-2.1.4.min.js"></script>
+<script src="/modules/libs/sea.js"></script>
+
+<script>
+    seajs.config({
+        base: "../modules/",
+        alias: {
+            "jquery":'libs/jquery-2.1.4.min'
+        }
+    });
+    //for development
+    if(location.href.indexOf('?dev') > 0) {
+        seajs.use('../static/hello/src/main');
+    }
+    // for production
+    else {
+        seajs.use("examples/hello/1.0.0/main");
+    }
+
+
+    define(function(require, exports) {
+        // 一些内部辅助函数
+        function addEvent(){
+
+        }
+        function removeEvent(){
+
+        }
+        function fireEvent(){
+
+        }
+        //使用exports导出模块接口，而非返回一个对象
+        exports.addEvent = addEvent;
+        exports.removeEvent = removeEvent;
+        exports.fireEvent = fireEvent;
+
+    })
+
+</script>
+</html>
