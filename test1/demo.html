@@ -9,14 +9,23 @@
     </style>
 </head>
 <body>
-    <a href="" id="test" title = "点击查看大图"><img src="http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg"></a>
+    <button id="click">点击toggle</button>
 </body>
 <script src="libs/jquery-2.1.4.min.js"></script>
 <script src="libs/sea.js"></script>
+<script src="static/map.js"></script>
 
 <script>
-    seajs.use("./static/main.js", function(test){
-        test.bind(document.getElementById('test'));
+    // seajs.use("./static/main.js", function(test){
+    //     test.bind(document.getElementById('test'));
+    // });
+    var myOverlay = null;
+    seajs.use("overlay", function(overlay){
+        myOverlay = overlay.overlay;
     });
+    document.getElementById('click').onclick = function(){
+        myOverlay[myOverlay.display ? "hide" : "show"]();
+    }
+
 </script>
 </html>

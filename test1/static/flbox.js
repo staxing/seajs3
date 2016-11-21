@@ -3,9 +3,9 @@
  */
 
 define(function(require, exports) {
-    var funCreate = require("./elementCreate")
-        , funAjax = require("./ajax")
-        , overlay = require("./overlay");
+    var funCreate = require("./elementCreate") , overlay = require("./overlay");
+       // , funAjax = require("./ajax")
+       
         
     var eleWin = funCreate.create("div", {
             styles: {
@@ -59,12 +59,15 @@ define(function(require, exports) {
             eleBody.innerHTML = '<div style="width:200px;height:100px;padding:10px;">加载中...</div>';    
             this.position();
         },
+        
         open: function(url) {
             var self = flbox;
-            funAjax.get(url, function(html) {
-                eleBody.innerHTML = html;
-                self.position();
-            });
+
+            // funAjax.get(url, function(html) {
+            //     eleBody.innerHTML = html;
+            //     self.position();
+            // });
+
         },
         position: function() {
             eleWin.style.display = "block";
